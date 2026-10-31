@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portofolio Bagus Abdilah Zaky: lulusan D3 Teknik Sipil, drafter AutoCAD, dan pemodel BIM Revit.">
+<link rel="icon" href="assets/img/abdilah.jpg">
+<meta name="theme-color" content="#0c0a09">
+<title>Bagus Abdilah Zaky – Portofolio Teknik Sipil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="splash" aria-hidden="true"><b>ABDILAH</b><em id="pct">0</em><i></i></div>
+<div id="veil"></div>
+<header id="hd"><a class="logo" href="#" aria-label="Abdilah, kembali ke atas"><img src="assets/img/abdilah.jpg" alt="Foto Abdilah"></a><button id="mbtn" aria-expanded="false" aria-controls="menu">Menu<i></i></button></header>
+<nav id="menu" aria-label="Menu utama" aria-hidden="true"><ul><li><a href="#" data-s="ed">Project</a></li><li><a href="#" data-s="split">Pengalaman</a></li><li><a href="#" data-s="skills">Keahlian</a></li><li><a href="#" data-s="news">Kontak</a></li></ul><p>bagusabdilahzaky@gmail.com</p></nav>
+
+<main id="home">
+<section class="cover" aria-roledescription="carousel" aria-label="Profil singkat">
+  <div class="slide on" style="--a:#d40511;--b:#5a1a14"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div>
+    <div class="copy"><div class="pre"><span>Portofolio teknik sipil</span></div><h1 class="title"><span>Bagus Abdilah Zaky</span></h1><button class="cta" data-s="ed">Lihat project</button></div></div>
+  <div class="slide" style="--a:#e8a317;--b:#3b1d0a"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div>
+    <div class="copy"><div class="pre"><span>Keahlian</span></div><h2 class="title"><span>Gambar kerja dan pemodelan BIM</span></h2><button class="cta" data-s="skills">Lihat keahlian</button></div></div>
+  <div class="slide" style="--a:#2f6fd6;--b:#0d1b3a"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div>
+    <div class="copy"><div class="pre"><span>Politeknik Raflesia, IPK 3,56</span></div><h2 class="title"><span>D3 Teknik Sipil, Cum Laude</span></h2><button class="cta" data-s="split">Lihat pengalaman</button></div></div>
+  <div class="dots" role="tablist" aria-label="Pilih slide"><button class="on" role="tab" aria-label="Slide 1">Profil</button><button role="tab" aria-label="Slide 2">Keahlian</button><button role="tab" aria-label="Slide 3">Pendidikan</button></div>
+  <div class="scroll">scroll</div>
+</section>
+
+<section class="ed" id="ed">
+  <div class="ed-head"><h2>Project</h2><div class="ctrl"><button id="prev" aria-label="Sebelumnya">‹</button><button id="next" aria-label="Berikutnya">›</button></div></div>
+  <div class="cats" role="group" aria-label="Kategori project"><button data-cat="all" aria-pressed="true">Semua</button><button data-cat="jembatan" aria-pressed="false">Jembatan</button><button data-cat="jalan" aria-pressed="false">Jalan</button><button data-cat="gedung" aria-pressed="false">Gedung</button><button data-cat="rumah" aria-pressed="false">Rumah</button><button data-cat="struktur" aria-pressed="false">Struktur</button><button data-cat="rab" aria-pressed="false">RAB</button></div>
+  <div class="track" id="track">
+    <article class="item" data-p="taxiway" data-cat="jalan"><div class="t"><h3>Gambar taxiway dan apron fleksibel bandara</h3><p>Praktik kerja lapangan di Bandara Fatmawati Soekarno, Bengkulu. Membuat dan merevisi gambar taxiway, apron fleksibel, dan parking stopper di AutoCAD, lalu mencocokkannya dengan kondisi aktual di lapangan.</p><a href="#taxiway">Lihat galeri project</a></div><div class="pic" style="--a:#d40511;--b:#2a0b0b"></div></article>
+    <article class="item" data-p="rumah" data-cat="rumah"><div class="t"><h3>Gambar kerja rumah sederhana dan rumah dinas</h3><p>Magang drafter di PT Citra Utama Conindo. Membaca gambar teknik, memahami detail konstruksi, dan merevisi gambar kerja sesuai arahan engineer.</p><a href="#rumah">Lihat galeri project</a></div><div class="pic" style="--a:#e8a317;--b:#3b1d0a"></div></article>
+    <article class="item" data-p="bim" data-cat="gedung"><div class="t"><h3>Gedung Kantor 5 lantai dalam model BIM Revit</h3><p>Tugas akhir D3 Teknik Sipil Politeknik Raflesia. Satu model Revit menghasilkan 77 lembar gambar kerja: arsitektur, struktur, dan MEP.</p><a href="#bim">Lihat 77 lembar gambar</a></div><div class="pic img" id="bimpic" style="--a:#2f6fd6;--b:#0d1b3a"></div></article>
+    <article class="item" data-p="jembatan" data-cat="jembatan"><div class="t"><h3>Project Jembatan</h3><p>Kumpulan gambar dan pemodelan project jembatan.</p><a href="#jembatan">Lihat galeri project</a></div><div class="pic" style="--a:#17a2b8;--b:#082b33"></div></article>
+    <article class="item" data-p="jalan" data-cat="jalan"><div class="t"><h3>Project Jalan</h3><p>Kumpulan gambar dan pemodelan project jalan.</p><a href="#jalan">Lihat galeri project</a></div><div class="pic" style="--a:#9aa0a6;--b:#1c1f23"></div></article>
+    <article class="item" data-p="gedung" data-cat="gedung"><div class="t"><h3>Project Gedung</h3><p>Kumpulan gambar dan pemodelan project gedung.</p><a href="#gedung">Lihat galeri project</a></div><div class="pic" style="--a:#8e44ad;--b:#220f2e"></div></article>
+    <article class="item" data-p="rumah2" data-cat="rumah"><div class="t"><h3>Project Rumah</h3><p>Kumpulan gambar dan pemodelan project rumah.</p><a href="#rumah2">Lihat galeri project</a></div><div class="pic" style="--a:#27ae60;--b:#0b2616"></div></article>
+    <article class="item" data-p="struktur" data-cat="struktur"><div class="t"><h3>Perhitungan struktur</h3><p>Perhitungan dan analisis struktur dengan tiga aplikasi: ETABS, SAP2000, dan Robot Structural Analysis.</p><a href="#struktur">Lihat perhitungan</a></div><div class="pic" style="--a:#3b5bdb;--b:#0b1233"></div></article>
+    <article class="item" data-p="rab" data-cat="rab"><div class="t"><h3>Perhitungan RAB</h3><p>Perhitungan rencana anggaran biaya: volume pekerjaan, analisis harga satuan, dan rekapitulasi.</p><a href="#rab">Lihat perhitungan</a></div><div class="pic" style="--a:#2ca58d;--b:#08241d"></div></article>
+  </div>
+  <div class="eprog" aria-hidden="true"><i></i></div>
+</section>
+
+<section class="split" id="split">
+  <a class="half" href="#angkasapura" data-p="angkasapura"><div class="bg" style="--a:#d40511;--b:#2a0b0b"></div><div class="copy"><div class="pre"><span>Praktik kerja lapangan, Agu–Sep 2025</span></div><h2 class="title"><span>Angkasa Pura Indonesia</span></h2><span class="cta">Lihat pekerjaan dan dokumentasi</span></div></a>
+  <a class="half" href="#citrautama" data-p="citrautama"><div class="bg" style="--a:#e8a317;--b:#3b1d0a"></div><div class="copy"><div class="pre"><span>Magang drafter, Jan–Apr 2022</span></div><h2 class="title"><span>PT Citra Utama Conindo</span></h2><span class="cta">Lihat pekerjaan dan dokumentasi</span></div></a>
+</section>
+
+<section class="skills" id="skills">
+  <div><h2>Keahlian</h2><div class="tags"><span><img src="assets/img/logo/autocad.png" alt="">AutoCAD</span><span><img src="assets/img/logo/revit.png" alt="">Revit</span><span><img src="assets/img/logo/civil_3d.png" alt="">Civil 3D</span><span><img src="assets/img/logo/sketcup.png" alt="">SketchUp</span><span><img src="assets/img/logo/sap_2000.png" alt="">SAP2000</span><span><img src="assets/img/logo/etabs.png" alt="">ETABS</span><span><img src="assets/img/logo/robot_struktural_analysis.png" alt="">Robot Structural Analysis</span><span>Building Information Modeling</span><span>Gambar 2D dan 3D</span><span>Bill of Quantities</span><span>K3</span><span><img src="assets/img/logo/excel.png" alt="">Microsoft Excel</span><span><img src="assets/img/logo/word.png" alt="">Microsoft Word</span><span><img src="assets/img/logo/power_point.png" alt="">Microsoft PowerPoint</span></div></div>
+  <div><h2>Sertifikasi</h2><ul class="certs">
+    <li><a class="cl" href="https://elearning.bsn.go.id/uploads/bsn/certificate/ds_127558.pdf" target="_blank" rel="noopener noreferrer">Sistem Manajemen K3 Berbasis SNI ISO 45001:2018 <i>↗</i></a><small>Badan Standarisasi Nasional, Okt 2026 – Okt 2027</small></li>
+    <li><a class="cl" href="#draftsman" data-p="draftsman">Road and Bridge Works Draftsman (Level 2) <i>→</i></a><small>Badan Nasional Sertifikasi Profesi, Sep 2026 – Sep 2031</small></li>
+    <li><a class="cl" href="#implementer" data-p="implementer">Building Work Field Implementer (Level 5) <i>→</i></a><small>Badan Nasional Sertifikasi Profesi, Sep 2026 – Sep 2031</small></li>
+  </ul></div>
+</section>
+
+<section class="news" id="news">
+  <div><h2>Kontak</h2><p>Terbuka untuk peluang di bidang gambar teknik dan perencanaan konstruksi.<br>bagusabdilahzaky@gmail.com<br>0895604974020, Curup, Rejang Lebong, Bengkulu</p></div>
+  <a class="btn" href="mailto:bagusabdilahzaky@gmail.com">Kirim email</a>
+</section>
+</main>
+
+<div id="detail" hidden></div>
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Lihat gambar kerja"><button class="lbb lbx" data-lb="close" aria-label="Tutup">✕</button><button class="lbb lbv" data-lb="prev" aria-label="Sebelumnya">‹</button><button class="lbb lbn" data-lb="next" aria-label="Berikutnya">›</button><div class="lbs" id="lbs"><img id="lbi" alt=""></div><p id="lbc"></p></div>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>
