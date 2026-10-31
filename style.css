@@ -277,3 +277,19 @@ body.indetail .logo{opacity:1;pointer-events:auto}
 
 /* ===== Foto latar (cover) untuk kartu dan header pengalaman ===== */
 .bg.photo{background:linear-gradient(180deg,#0c0a0955 0%,#0c0a09d9 100%),var(--img) center/cover no-repeat,#0c0a09}
+
+/* ===== Rumah tipe 36 (lembar portrait) + cover foto wisuda ===== */
+.info .dd p+p{margin-top:18px}
+.sgrid.port{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.sgrid.port .sh .im{aspect-ratio:992/1403}
+.sgrid.port .sh img{object-fit:contain}
+.slide.photo .bg{inset:-4%;background:url(assets/img/cover-wisuda.jpg) 66% 28%/cover no-repeat}
+.slide.photo .streak{display:none}
+.slide.photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,#0c0a09e6 0%,#0c0a0966 38%,#0c0a0900 62%),linear-gradient(90deg,#0c0a0966,#0c0a0900 55%)}
+.slide.photo .copy{z-index:2}
+/* cover foto wisuda: subjek bergeser ke kanan supaya teks tidak menutupi wajah dan map ijazah */
+.slide.photo .bg{inset:-4% -4% -4% 24%;background-position:68% 12%}
+.slide.photo .title{font-size:clamp(40px,6.4vw,92px)}
+.slide.photo::before{background:linear-gradient(90deg,#0c0a09 0%,#0c0a09 26%,#0c0a0900 54%),linear-gradient(0deg,#0c0a09e6 0%,#0c0a0966 36%,#0c0a0900 60%)}
+@media (max-width:760px){.slide.photo .bg{inset:-4%;background-position:70% 10%}.slide.photo::before{background:linear-gradient(0deg,#0c0a09f0 0%,#0c0a0999 45%,#0c0a0900 75%)}}
+.slide.photo .copy{max-width:min(600px,90vw)}.slide.photo .title{font-size:clamp(40px,5.6vw,80px)}
