@@ -190,7 +190,7 @@ document.addEventListener('click',function(e){
   var a=e.target.closest('#menu [data-s]');
   if(a){e.preventDefault();e.stopImmediatePropagation();setMenu(false);var go=function(){document.getElementById(a.dataset.s).scrollIntoView({behavior:RM?'auto':'smooth'})};
     if(det.hidden)setTimeout(go,350);else{var b=$('.back',det);if(b)b.click();setTimeout(go,1500)}return}
-  if(e.target.closest('.logo')){e.preventDefault();setMenu(false);var bk=$('.back',det);if(!det.hidden&&bk)bk.click();else scrollTo({top:0,behavior:RM?'auto':'smooth'})}
+  if(e.target.closest('.logo')){e.preventDefault();setMenu(false);document.dispatchEvent(new Event('opencard'))}
 },true);
 new MutationObserver(function(){document.body.classList.toggle('indetail',!det.hidden)}).observe(det,{attributes:true,attributeFilter:['hidden']});
 /* 5. seret carousel + kursor */
@@ -210,4 +210,13 @@ $$('.item').forEach(function(it){var s=document.createElement('small');s.classNa
 document.addEventListener('click',function(e){var b=e.target.closest('.cats [data-cat]');if(!b)return;var f=b.dataset.cat;
   $$('.cats [data-cat]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
   $$('.item').forEach(function(it){it.hidden=!(f==='all'||it.dataset.cat===f)});var t=$('#track');t.scrollLeft=0;t.dispatchEvent(new Event('scroll'))});
+})();
+
+/* kartu nama: klik foto di pojok kiri atas */
+(function(){var card=document.getElementById('card'),logo=document.querySelector('.logo'),x=card.querySelector('.bcx'),RM=matchMedia('(prefers-reduced-motion: reduce)').matches,tm;
+function open(){clearTimeout(tm);card.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(function(){requestAnimationFrame(function(){card.classList.add('in')})});x.focus()}
+function close(){if(card.hidden)return;card.classList.remove('in');document.body.style.overflow='';tm=setTimeout(function(){card.hidden=true},RM?0:380);if(logo)logo.focus()}
+document.addEventListener('opencard',open);
+card.addEventListener('click',function(e){if(e.target===card||e.target.closest('[data-card=close]'))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!card.hidden)close()});
 })();
