@@ -293,3 +293,16 @@ body.indetail .logo{opacity:1;pointer-events:auto}
 .slide.photo::before{background:linear-gradient(90deg,#0c0a09 0%,#0c0a09 26%,#0c0a0900 54%),linear-gradient(0deg,#0c0a09e6 0%,#0c0a0966 36%,#0c0a0900 60%)}
 @media (max-width:760px){.slide.photo .bg{inset:-4%;background-position:70% 10%}.slide.photo::before{background:linear-gradient(0deg,#0c0a09f0 0%,#0c0a0999 45%,#0c0a0900 75%)}}
 .slide.photo .copy{max-width:min(600px,90vw)}.slide.photo .title{font-size:clamp(40px,5.6vw,80px)}
+
+/* ===== Bukti satu ukuran + kotak multi-gambar, sertifikat 2 gambar ===== */
+.evw.fit .ev img{object-fit:contain}
+.ev[data-n].ok::after{content:attr(data-n) " gambar";position:absolute;right:10px;top:10px;background:#0c0a09cc;color:#fff;padding:4px 10px;font:600 14px var(--display);letter-spacing:.06em}
+.cimgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.cf{margin:0}.cf figcaption{padding:10px 0 0;font:600 17px var(--display);color:var(--muted);letter-spacing:.02em}
+button.cimg{all:unset;box-sizing:border-box;position:relative;width:100%;min-height:200px;background:var(--card);display:grid;place-items:center;cursor:default}
+button.cimg.ok{cursor:zoom-in}button.cimg:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+button.cimg img{display:block;width:100%;height:auto}
+button.cimg span{display:none;color:var(--muted);font:500 18px var(--display);text-align:center;padding:20px}
+button.cimg.empty span{display:block}
+.cert .cinfo{position:sticky;top:96px;align-self:start}
+@media (max-width:760px){.cimgs{grid-template-columns:1fr}.cert .cinfo{position:static}}
