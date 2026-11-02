@@ -8,16 +8,14 @@ var IMGS={};SH.forEach(function(s){IMGS[s.c]=['assets/img/thumb/'+s.c+'.webp','a
 (function(){
 var $=function(s){return document.querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var order=['taxiway','rumah','polres','bim','jembatan','jalan','gedung','rumah2','struktur','rab'];
+var order=['rumah','polres','bim','jembatan','jalan','gedung','rumah2','struktur','rab'];
 var P={
- taxiway:{t:'Taxiway dan apron fleksibel',pre:'Praktik kerja lapangan, Agu–Sep 2025',a:'#d40511',b:'#2a0b0b',
-  m:[['Lokasi','Bandara Fatmawati Soekarno, Bengkulu'],['Perusahaan','PT Angkasa Pura Indonesia'],['Unit','Airport Airside & Landside Facilities'],['Software','AutoCAD']],
-  d:'Selama praktik kerja lapangan saya memeriksa kondisi fasilitas bandara, lalu membuat dan merevisi gambar teknis di AutoCAD: taxiway, apron fleksibel, dan parking stopper. Setiap gambar dicocokkan dengan kondisi aktual di lapangan.',
-  g:['Gambar taxiway','Gambar apron fleksibel','Gambar parking stopper','Pemeriksaan fasilitas','Revisi gambar','Kesesuaian gambar dan kondisi aktual']},
  rumah:{t:'Rumah sederhana dan rumah dinas',pre:'Magang drafter, Jan–Apr 2022',a:'#e8a317',b:'#3b1d0a',
-  m:[['Lokasi','Kab. Rejang Lebong, Bengkulu'],['Perusahaan','PT Citra Utama Conindo'],['Peran','AutoCAD Drafter (magang)'],['Software','AutoCAD']],
-  d:'Sebagai drafter magang saya membuat dan merevisi gambar kerja konstruksi berdasarkan arahan engineer. Saya belajar membaca gambar teknik dan memahami detail konstruksi, lewat gambar rumah sederhana dan rumah dinas.',
-  g:['Gambar kerja rumah sederhana','Gambar kerja rumah dinas','Detail konstruksi','Revisi dari engineer','Gambar kerja 05','Gambar kerja 06']},
+  m:[['Lokasi','Kab. Rejang Lebong, Bengkulu'],['Perusahaan','PT Citra Utama Conindo'],['Peran','AutoCAD Drafter (magang)'],['Software','AutoCAD dan SketchUp']],
+  d:'Sebagai drafter magang saya membuat dan merevisi gambar kerja konstruksi berdasarkan arahan engineer. Saya belajar membaca gambar teknik dan memahami detail konstruksi, lewat gambar rumah sederhana dan rumah dinas.\nSelama melaksanakan kegiatan magang di PT Citra Utama Conindo, saya mendapat tugas untuk membuat pemodelan tiga dimensi (3D) bangunan rumah tipe 36 menggunakan aplikasi SketchUp. Proses pengerjaan dilakukan berdasarkan gambar denah dan ukuran bangunan yang telah ditentukan. Pemodelan meliputi pembuatan elemen bangunan, seperti dinding, pintu, jendela, lantai, dan atap. Dalam prosesnya, saya menyesuaikan bentuk serta dimensi setiap elemen agar sesuai dengan gambar perencanaan. Hasil pemodelan 3D ini digunakan untuk memberikan gambaran visual mengenai bentuk dan tampilan bangunan secara keseluruhan.',
+  from:{id:'citrautama',t:'magang di PT Citra Utama Conindo'},
+  m3d:{src:'assets/3d/rumah-tipe-36.glb',poster:'assets/3d/rumah-tipe-36-poster.jpg',alt:'Model 3D rumah tipe 36 yang dibuat di SketchUp',size:'±23 MB · lebih nyaman di komputer atau WiFi',note:'Gambar di atas adalah pratinjau. Setelah model dimuat: geser untuk memutar, scroll atau cubit untuk zoom. Model dibuat di SketchUp.'},
+  g:['Gambar kerja rumah sederhana','Gambar kerja rumah dinas','Detail konstruksi',null,'Gambar kerja 05','Gambar kerja 06']},
  bim:{sh:'bim',t:'Gedung Kantor 5 lantai dalam model BIM',pre:'Tugas akhir D3 Teknik Sipil, 2026',a:'#2f6fd6',b:'#0d1b3a',
   m:[['Proyek','Gedung Kantor, 5 lantai + rooftop'],['Kampus','Politeknik Raflesia Rejang Lebong'],['Dimodelkan di','Revit (Building Information Modeling)'],['Disiplin','Arsitektur, Struktur, MEP']],
   d:'Tugas akhir saya: merencanakan Gedung Kantor lima lantai dan memodelkannya dalam Building Information Modeling dengan Revit. Dari satu model lahir 77 lembar gambar kerja: 32 lembar arsitektur, 24 lembar struktur, dan 21 lembar MEP (listrik, air bersih dan kotor, HVAC). Klik lembar mana pun untuk melihatnya penuh.',
@@ -80,18 +78,18 @@ var P={
     s:[['Volume pekerjaan','Rekap volume per pekerjaan, dari persiapan sampai pekerjaan lain-lain.'],['Harga dan bobot','Harga satuan memakai AHSP dengan daftar bahan dan upah; setiap pekerjaan diberi bobot terhadap total biaya.'],['Jadwal dan rekapitulasi','Ada 12 kelompok pekerjaan, dengan time schedule dan kurva S. Pasangan dan plesteran paling besar, disusul atap dan plafond.']],
     g:[{h:'Rekapitulasi dan porsi biaya',k:'RAB',ev:[{t:'Rekapitulasi RAB project magang',src:'assets/img/rab/magang-rekap.webp'},{t:'Porsi biaya per kelompok pekerjaan',src:'assets/img/rab/magang-porsi.webp'}]},{h:'Foto sheet Excel',k:'Sheet',ev:[{t:'Sheet rekapitulasi RAB',src:'assets/img/rab/sheet/magang-s-rekap.webp'},{t:'Sheet RAB: volume, harga satuan, dan jumlah',src:'assets/img/rab/sheet/magang-s-rab.webp'},{t:'Sheet rekap volume',src:'assets/img/rab/sheet/magang-s-volume.webp'},{t:'Sheet AHSP: analisis harga satuan',src:'assets/img/rab/sheet/magang-s-ahsp.webp'},{t:'Sheet bobot pekerjaan',src:'assets/img/rab/sheet/magang-s-bobot.webp'},{t:'Sheet time schedule dan kurva S',src:'assets/img/rab/sheet/magang-s-kurva.webp'}]}]}
   ]},
- draftsman:{cert:1,t:'Road and Bridge Works Draftsman (Level 2)',a:'#e8a317',b:'#3b1d0a',m:[['Penerbit','Badan Nasional Sertifikasi Profesi'],['Level','2'],['Masa berlaku','Sep 2026 – Sep 2031']],url:'https://sis.lspataki.com/sertifikat/validasi_signature/SS0yMDIzMTAyNzEzMzQ1Nzg0ODg5'},
+ draftsman:{cert:1,t:'Road and Bridge Works Draftsman (Level 2)',a:'#e8a317',b:'#3b1d0a',m:[['Penerbit','Badan Nasional Sertifikasi Profesi'],['Level','2'],['Masa berlaku','13 November 2023 – 13 November 2028']],url:'https://sis.lspataki.com/sertifikat/validasi_signature/SS0yMDIzMTAyNzEzMzQ1Nzg0ODg5'},
  implementer:{cert:1,t:'Building Work Field Implementer (Level 5)',a:'#2f6fd6',b:'#0d1b3a',m:[['Penerbit','Badan Nasional Sertifikasi Profesi'],['Level','5'],['Masa berlaku','Sep 2026 – Sep 2031']],url:'https://sipp.p3sm.or.id/digital-signature/lsp/ketua/sertifikat/1wNN5t6A'},
  angkasapura:{exp:1,nx:'citrautama',bg:'assets/img/magang/angkasapura/cover.jpg',t:'Magang di PT Angkasa Pura Indonesia',role:'Airport Airside &amp; Landside Facilities',per:'Agu–Sep 2025',a:'#d40511',b:'#2a0b0b',
   m:[['Perusahaan','PT Angkasa Pura Indonesia'],['Unit','Airport Airside &amp; Landside Facilities'],['Lokasi','Bandara Fatmawati Soekarno, Bengkulu'],['Periode','Agustus – September 2025'],['Software','AutoCAD']],
   s:[["Pekerjaan yang dilakukan", "Saat menjalani magang sebagai Airport Airside &amp; Landside Facilities di PT Angkasa Pura Indonesia, saya terlibat dalam berbagai pekerjaan yang berkaitan dengan pemeliharaan, fasilitas, dan penggambaran teknis di lingkungan bandara. Saya membantu membuat, menyesuaikan, dan merevisi gambar kerja taxiway dan apron flexible untuk kebutuhan pekerjaan perbaikan, membuat gambar parking stopper, serta melakukan penyesuaian gambar berdasarkan kondisi eksisting di lapangan. Selain itu, saya turut melakukan inspeksi kondisi gedung dan fasilitas bandara serta membantu memastikan kesesuaian antara gambar kerja dengan kondisi aktual di lapangan."], ["Tantangan", "Tantangan yang saya hadapi adalah adanya perbedaan antara gambar yang tersedia dengan kondisi eksisting, sehingga diperlukan ketelitian dalam melakukan pengecekan dan penyesuaian gambar."], ["Cara mengatasi", "Untuk mengatasinya, saya melakukan observasi dan pengukuran langsung di lapangan, mencocokkan hasil pengamatan dengan gambar yang tersedia, kemudian melakukan revisi dan penyesuaian gambar berdasarkan kondisi aktual serta arahan Engineer."], ["Yang saya pelajari", "Pengalaman tersebut membantu saya meningkatkan kemampuan dalam membaca dan membuat gambar teknik, memahami kondisi lapangan, melakukan inspeksi, serta berkoordinasi dalam penyelesaian pekerjaan teknis. Saya juga belajar untuk bekerja secara teliti, sistematis, dan bertanggung jawab dengan tetap memperhatikan target pekerjaan dan kebutuhan teknis di lapangan."]],
   ev:[{"t": "Gambar masterplan Bandara Fatmawati Soekarno", "src": "assets/img/magang/angkasapura/masterplan.webp"}, {"t": "Gambar taxiway dan apron flexible", "src": "assets/img/magang/angkasapura/bukti-2.jpg", "cap": "Kondisi perkerasan Taxiway B sebelum dan sesudah perbaikan", "more": [{"src": "assets/img/magang/angkasapura/bukti-2b.jpg", "t": "Kerusakan apron flexible STA 0 s/d 375"}]}, {"t": "Gambar parking stopper", "src": "assets/img/magang/angkasapura/bukti-3.jpg"}],
   dok:[{"t": "Kebersamaan bersama tim saat kegiatan malam", "src": "assets/img/magang/angkasapura/dok-1.jpg"}, {"t": "Pengukuran di lapangan dengan total station", "src": "assets/img/magang/angkasapura/dok-2.jpg"}, {"t": "Kebersamaan bersama tim di area bandara", "src": "assets/img/magang/angkasapura/dok-3.jpg"}, {"t": "Pekerjaan pengisian agregat pada area perkerasan", "src": "assets/img/magang/angkasapura/dok-4.jpg"}, {"t": "Hasil pekerjaan perbaikan area perkerasan (patching)", "src": "assets/img/magang/angkasapura/dok-5.jpg"}, {"t": "Pemadatan area perbaikan dengan roller", "src": "assets/img/magang/angkasapura/dok-6.jpg"}]},
- polres:{sh:'pol',t:'Gambar Kerja Gedung Polres',pre:'Project saat magang di PT Citra Utama Conindo',a:'#e8a317',b:'#3b1d0a',
+ polres:{from:{id:'citrautama',t:'magang di PT Citra Utama Conindo'},sh:'pol',t:'Gambar Kerja Gedung Polres',pre:'Project saat magang di PT Citra Utama Conindo',a:'#e8a317',b:'#3b1d0a',
   m:[['Proyek','Gedung Polres'],['Kategori','Gedung'],['Perusahaan','PT Citra Utama Conindo'],['Cakupan gambar','Arsitektur dan struktur'],['Software','AutoCAD']],
   d:"Gedung Polres ini merupakan salah satu proyek pembangunan tempat saya melaksanakan kegiatan magang di PT Citra Utama Conindo. Selama menjalani kegiatan magang, saya turut serta membantu dalam proses pembuatan gambar kerja (working drawing) sesuai dengan arahan dan bimbingan pembimbing lapangan. Pekerjaan tersebut meliputi penggambaran dan penyesuaian gambar arsitektur serta struktur bangunan berdasarkan gambar perencanaan yang telah tersedia.\nDalam proses pengerjaannya, saya mempelajari cara membaca dan memahami gambar denah, tampak, potongan, serta detail konstruksi bangunan. Saya juga membantu menggambar dan mempelajari detail struktur yang meliputi pondasi, sloof, kolom, balok, pelat lantai, serta detail pembesian. Selain itu, saya mempelajari dimensi struktur, spesifikasi material, dan ketentuan teknis yang tercantum dalam gambar perencanaan. Melalui kegiatan ini, saya memperoleh pengalaman dalam proses penyusunan gambar kerja serta pemahaman mengenai penerapan ilmu teknik sipil dalam pekerjaan proyek konstruksi gedung.",
   f:[['44','Lembar gambar kerja'],['24','Lembar arsitektur'],['20','Lembar struktur'],['AutoCAD','Software']]},
- citrautama:{exp:1,nx:'angkasapura',proj:[{id:'polres',cat:'Gedung',t:'Gambar kerja Gedung Polres',img:'assets/img/polres/thumb/POL-02.webp',n:'44 lembar gambar kerja'}],t:'Magang di PT Citra Utama Conindo',role:'Drafter',per:'Jan–Apr 2022',a:'#e8a317',b:'#3b1d0a',
+ citrautama:{exp:1,nx:'angkasapura',proj:[{id:'rumah',cat:'Rumah',t:'Gambar kerja dan model 3D rumah sederhana',img:'assets/3d/rumah-tipe-36-poster.jpg',n:'AutoCAD dan SketchUp'},{id:'polres',cat:'Gedung',t:'Gambar kerja Gedung Polres',img:'assets/img/polres/thumb/POL-02.webp',n:'44 lembar gambar kerja'}],t:'Magang di PT Citra Utama Conindo',role:'Drafter',per:'Jan–Apr 2022',a:'#e8a317',b:'#3b1d0a',
   m:[['Perusahaan','PT Citra Utama Conindo'],['Peran','Drafter (magang)'],['Lokasi','Kab. Rejang Lebong, Bengkulu'],['Periode','Januari – April 2022'],['Proyek','Rumah sederhana, rumah dinas, dan gedung Polres'],['Software','AutoCAD']],
   s:[["Pekerjaan yang dilakukan", "Selama magang sebagai Drafter di PT Citra Utama Conindo, saya terlibat dalam tiga project: rumah sederhana, rumah dinas, dan Gedung Polres. Pada rumah sederhana dan rumah dinas, saya membuat dan merevisi gambar kerja di AutoCAD berdasarkan arahan Engineer. Pada Gedung Polres, saya membantu penyusunan 44 lembar gambar kerja yang mencakup arsitektur (denah, tampak, potongan, serta detail pintu dan jendela) dan struktur (pondasi, sloof, kolom, balok, tangga, dan detail pembesian). Dari ketiga project ini saya belajar membaca gambar teknik dan memahami detail konstruksi."], ["Tantangan", "Tantangan yang saya hadapi adalah adanya perubahan desain dan beberapa kali revisi dari Engineer maupun pihak lapangan dengan waktu pengerjaan yang cukup singkat."], ["Cara mengatasi", "Saya mengatasinya dengan tetap tenang, memahami perubahan yang diminta, kemudian mengecek kembali ukuran, dimensi, dan detail gambar sebelum melakukan revisi. Saya juga berkoordinasi dengan pihak terkait untuk memastikan hasil gambar sesuai dengan kebutuhan proyek dan kondisi di lapangan."], ["Yang saya pelajari", "Dari pengalaman tersebut, saya menjadi lebih teliti dalam membuat gambar, mampu bekerja dengan deadline, serta terbiasa menerima dan menindaklanjuti revisi."]],
   ev:[{"t": "Gambar kerja rumah sederhana", "src": "assets/img/magang/citrautama/bukti-1.jpg"}, {"t": "Gambar kerja rumah dinas", "src": "assets/img/magang/citrautama/bukti-2.jpg"}]}
@@ -130,7 +128,7 @@ function renderExp(id){var p=P[id],q=P[p.nx];det.style.setProperty('--a',p.a);de
   '<header class="dh dhs"><div class="bg'+(p.bg?' photo':'')+'"'+(p.bg?' style="--img:url('+p.bg+')"':'')+'></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>'+p.role+' · '+p.per+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
   '<section class="info"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><div><h2 class="eh">'+p.s[0][0]+'</h2><p>'+p.s[0][1]+'</p></div></section>'+
   '<section class="exps">'+p.s.slice(1).map(function(s,i){return '<div><small>0'+(i+2)+'</small><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('')+'</section>'+
-  (p.proj?'<section aria-label="Project saat magang"><div class="shead"><h2>Project saat magang</h2></div><div class="evg">'+p.proj.map(function(x){return '<figure class="evw"><a class="pj" href="#'+x.id+'" data-p="'+x.id+'" aria-label="Buka project '+x.t+'"><img src="'+x.img+'" alt="'+x.t+'" loading="lazy"><span>Buka project →</span></a><figcaption><small>'+x.cat+'</small>'+x.t+', '+x.n+'</figcaption></figure>'}).join('')+'</div></section>':'')+
+  (p.proj?'<section aria-label="Project saat magang"><div class="shead"><h2>Project saat magang</h2></div><div class="evg">'+p.proj.map(function(x){return '<figure class="evw"><a class="pj'+(x.fit?' fit':'')+'" href="#'+x.id+'" data-p="'+x.id+'" aria-label="Buka project '+x.t+'"><img src="'+x.img+'" alt="'+x.t+'" loading="lazy"><span>Buka project →</span></a><figcaption><small>'+x.cat+'</small>'+x.t+', '+x.n+'</figcaption></figure>'}).join('')+'</div></section>':'')+
   '<section aria-label="Bukti project"><div class="shead"><h2>Bukti project</h2></div><div class="evg">'+tiles(p.ev,'Bukti')+'</div></section>'+
   (p.dok?'<section aria-label="Dokumentasi"><div class="shead"><h2>Dokumentasi</h2></div><div class="evg">'+tiles(p.dok,'Foto')+'</div></section>':'')+
   '<a class="next" href="#'+p.nx+'" data-p="'+p.nx+'" style="--a:'+q.a+';--b:'+q.b+'"><small>Pengalaman berikutnya</small><b>'+q.t+'</b></a>';
@@ -141,6 +139,20 @@ function renderCert(id){var p=P[id];GRP[id]=[{src:'assets/img/sertifikat/'+id+'-
     '<section class="cert"><div class="cimgs">'+[0,1].map(function(i){var g=GRP[id][i];return '<figure class="cf"><button class="cimg cz" data-g="'+id+'" data-i="'+i+'" aria-label="Perbesar '+g.t+'"><img src="'+g.src+'" alt="'+g.t+'" onload="this.parentNode.classList.add(\'ok\')" onerror="this.parentNode.classList.add(\'empty\');this.remove()"><span>Foto segera ditambahkan</span></button><figcaption>'+g.c+'</figcaption></figure>'}).join('')+'</div>'+
   '<div class="cinfo"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><a class="cbtn" href="'+p.url+'" target="_blank" rel="noopener noreferrer">Buka kredensial ↗</a><p class="curl">'+p.url+'</p></div></section>';
   var h=$('.dh',det);requestAnimationFrame(function(){requestAnimationFrame(function(){h.classList.add('on')})})}
+function mvLoad(){return new Promise(function(res,rej){
+  if(window.customElements&&customElements.get('model-viewer')){res();return}
+  var srcs=['https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js','https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js'],k=0;
+  (function next(){if(k>=srcs.length){rej();return}var sc=document.createElement('script');sc.type='module';sc.src=srcs[k++];sc.onerror=function(){sc.remove();next()};sc.onload=function(){customElements.whenDefined('model-viewer').then(res)};document.head.appendChild(sc)})()})}
+function load3D(btn){var box=btn.closest('.m3d'),c=P[box.dataset.id].m3d,stage=box.querySelector('.m3dbox'),prog=box.querySelector('.m3dbar'),bar=prog.querySelector('i'),note=box.querySelector('.m3dnote'),lab=btn.querySelector('b');
+  btn.disabled=true;btn.classList.add('busy');lab.textContent='Memuat model…';
+  var fail=function(){btn.disabled=false;btn.classList.remove('busy');lab.textContent='Coba muat lagi';prog.hidden=true;note.classList.add('err');note.innerHTML='Model 3D gagal dimuat (butuh koneksi internet). <a href="'+c.src+'" download>Unduh file GLB</a> untuk dibuka di aplikasi 3D.'};
+  Promise.race([mvLoad(),new Promise(function(_,r){setTimeout(r,20000)})]).then(function(){
+    var mv=document.createElement('model-viewer');mv.className='m3dmv';
+    mv.setAttribute('src',c.src);mv.setAttribute('alt',c.alt);mv.setAttribute('camera-controls','');mv.setAttribute('camera-orbit','110deg 60deg auto');mv.setAttribute('shadow-intensity','0');mv.setAttribute('touch-action','pan-y');mv.setAttribute('interaction-prompt','none');mv.setAttribute('loading','eager');
+    mv.addEventListener('progress',function(e){bar.style.width=Math.round(((e.detail&&e.detail.totalProgress)||0)*100)+'%'});
+    mv.addEventListener('load',function(){stage.classList.add('live');btn.remove();prog.remove()},{once:true});
+    mv.addEventListener('error',function(){mv.remove();fail()});
+    prog.hidden=false;stage.appendChild(mv)}).catch(fail)}
 function evT(arr,k,fit){return arr.map(function(x,i){return '<figure class="evw'+(fit?' fit':'')+'"><button class="ev" disabled data-src="'+x.src+'" data-cap="'+x.t+'" aria-label="Lihat '+x.t+'"><img src="'+x.src+'" alt="'+x.t+'" onload="var b=this.parentNode;b.classList.add(\'ok\');b.disabled=false" onerror="this.remove()"><em>Foto segera ditambahkan</em></button><figcaption><small>'+k+' '+(i+1)+'</small>'+x.t+'</figcaption></figure>'}).join('')}
 function appTab(b){var k=b.dataset.app;$$('[data-app]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});$$('.apnl').forEach(function(x){x.hidden=x.dataset.pnl!==k})}
 function renderCalc(id){var p=P[id],n=order[(order.indexOf(id)+1)%order.length],q=P[n];det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
@@ -158,25 +170,29 @@ function render(id){var p=P[id];if(p.cert){renderCert(id);return}if(p.exp){rende
   det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
   det.innerHTML='<button class="back" data-back>‹ Semua project</button>'+
   '<header class="dh"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>'+p.pre+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
-  '<section class="info"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><div class="dd"><p>'+p.d.split('\n').join('</p><p>')+'</p></div></section>'+
-  (p.f?factsHTML(p.f):'')+(p.sh?sheetsHTML(p.sh):'<section class="gal" aria-label="Galeri '+p.t+'">'+p.g.map(function(g,i){return '<figure class="tile" data-cur="Foto"><img src="assets/img/'+id+'/'+(i+1)+'.jpg" alt="'+g+'" onerror="this.remove()"><i></i><span><small>Ganti dengan foto '+(i+1)+'</small>'+g+'</span></figure>'}).join('')+'</section>')+
+  '<section class="info"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><div class="dd"><p>'+p.d.split('\n').join('</p><p>')+'</p>'+(p.from?'<a class="from" href="#'+p.from.id+'" data-p="'+p.from.id+'">Bagian dari '+p.from.t+' →</a>':'')+'</div></section>'+
+  (p.f?factsHTML(p.f):'')+(p.m3d?'<section class="m3d" data-id="'+id+'" aria-label="Model 3D"><div class="shead"><h2>Model 3D</h2></div><div class="m3dbox"><img class="m3dposter" src="'+p.m3d.poster+'" alt="'+p.m3d.alt+'"><button class="m3dgo" data-m3d><b>Lihat model 3D interaktif</b><small>'+p.m3d.size+'</small></button><div class="m3dbar" hidden><i></i></div></div><p class="m3dnote">'+p.m3d.note+'</p></section>':'')+(p.sh?sheetsHTML(p.sh):'<section class="gal" aria-label="Galeri '+p.t+'">'+p.g.map(function(g,i){return g===null?'':'<figure class="tile" data-cur="Foto"><img src="assets/img/'+id+'/'+(i+1)+'.jpg" alt="'+g+'" onerror="this.remove()"><i></i><span><small>Ganti dengan foto '+(i+1)+'</small>'+g+'</span></figure>'}).join('')+'</section>')+
   '<a class="next" href="#'+n+'" data-p="'+n+'" style="--a:'+q.a+';--b:'+q.b+'"><small>Project berikutnya</small><b>'+q.t+'</b></a>';
   if(io) io.disconnect();
   io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay=(e.target.dataset.d||0)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
   $$('.tile,.rv',det).forEach(function(t,i){t.dataset.d=(i%3)*90;io.observe(t)});
   var h=$('.dh',det);requestAnimationFrame(function(){requestAnimationFrame(function(){h.classList.add('on')})});}
+var ALIAS={taxiway:{to:'angkasapura',sec:'Bukti project',hl:1}},pend=null;
 function route(){lbClose();var id=location.hash.slice(1);
-  if(P[id]){render(id);home.hidden=true;det.hidden=false;scrollTo(0,0);document.title=P[id].t+' – Bagus Abdilah Zaky'}
+  if(ALIAS[id]){pend=ALIAS[id];id=pend.to;history.replaceState(null,'','#'+id)}
+  if(P[id]){render(id);home.hidden=true;det.hidden=false;scrollTo(0,0);document.title=P[id].t+' – Bagus Abdilah Zaky';
+    if(pend){var pd=pend;pend=null;requestAnimationFrame(function(){var sec=det.querySelector('section[aria-label="'+pd.sec+'"]');if(!sec)return;scrollTo(0,Math.max(0,sec.getBoundingClientRect().top+scrollY-84));if(pd.hl){var t=sec.querySelectorAll('.evw')[1];if(t){t.classList.add('hl');setTimeout(function(){t.classList.remove('hl')},2800)}}})}}
   else{det.hidden=true;home.hidden=false;scrollTo(0,y0);document.title='Bagus Abdilah Zaky – Portofolio Teknik Sipil'}
   if(veil.style.display==='block')fadeOut();}
 addEventListener('hashchange',route);
-function go(id,el){if(!home.hidden)y0=scrollY;
+function go(id,el){var al=ALIAS[id];if(al){pend=al;id=al.to}if(!home.hidden)y0=scrollY;
   if(RM||!el){location.hash=id;return}
   var t=el.querySelector('.pic,.bg')||el;expand(t.getBoundingClientRect(),id).then(function(){location.hash=id});}
 function back(){var id=location.hash.slice(1);if(RM){location.hash='';return}
   fadeIn(id).then(function(){history.replaceState(null,'',location.pathname+location.search);route()});}
 document.addEventListener('click',function(e){
   var sh=e.target.closest('.sh');if(sh){curSet=SETS[$('#sgrid').dataset.set];lbOpen(+sh.dataset.i);return}
+  var m3=e.target.closest('[data-m3d]');if(m3){load3D(m3);return}
   var cz=e.target.closest('.cz.ok');if(cz){lbGrp(GRP[cz.dataset.g],+cz.dataset.i);return}
   var ev=e.target.closest('.ev.ok');if(ev){if(ev.dataset.g)lbGrp(GRP[ev.dataset.g],0);else lbOpenSrc(ev.dataset.src,ev.dataset.cap);return}
   var at=e.target.closest('[data-app]');if(at){appTab(at);return}
@@ -193,7 +209,7 @@ $('.dots').style.setProperty('--dur',DUR+'ms');
 function sl(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
   dots.forEach(function(d,k){d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}});clearTimeout(t);t=setTimeout(function(){sl(i+1)},DUR)}
 dots.forEach(function(d,k){d.addEventListener('click',function(){sl(k)})});
-var deep=P[location.hash.slice(1)];
+var deep=P[location.hash.slice(1)]||ALIAS[location.hash.slice(1)];
 setTimeout(function(){document.body.classList.add('ready');if(!RM)sl(0)},RM?0:deep?450:1750);
 var tr=$('#track');function step(d){tr.scrollBy({left:d*(tr.firstElementChild.offsetWidth+2),behavior:'smooth'})}
 $('#next').onclick=function(){step(1)};$('#prev').onclick=function(){step(-1)};
@@ -260,3 +276,10 @@ document.addEventListener('opencard',open);
 card.addEventListener('click',function(e){if(e.target===card||e.target.closest('[data-card=close]'))close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!card.hidden)close()});
 })();
+
+/* ===== Unduh CV: satu klik mengunduh kedua CV ===== */
+(function(){var a=document.getElementById('cvdl');if(!a)return;
+var F=['assets/cv/CV_KREATIF_BAGUS_ABDILAH_ZAKY.pdf','assets/cv/CV_ATS_BAGUS_ABDILAH_ZAKY.pdf'],ic=a.querySelector('i'),tm;
+a.addEventListener('click',function(e){e.preventDefault();if(a.classList.contains('busy'))return;a.classList.add('busy');
+  F.forEach(function(u,k){setTimeout(function(){var d=document.createElement('a');d.href=u;d.download=u.split('/').pop();d.style.display='none';document.body.appendChild(d);d.click();d.remove()},k*700)});
+  ic.textContent='✓';clearTimeout(tm);tm=setTimeout(function(){ic.textContent='↓';a.classList.remove('busy')},3200)})})();
