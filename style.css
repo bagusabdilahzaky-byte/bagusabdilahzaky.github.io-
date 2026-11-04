@@ -349,3 +349,17 @@ a.from{display:inline-block;margin-top:18px;color:var(--red);text-decoration:non
 .cvmenu b{font:600 19px var(--display);letter-spacing:.05em}
 .cvmenu small{font:500 14px var(--display);color:#ffffffb8;letter-spacing:.02em}
 @media (max-width:760px){.cvmenu{left:0;width:min(300px,calc(100vw - 2*var(--pad)))}}
+
+/* ===== Seksi tugas pada halaman magang ===== */
+.xs{padding:0 var(--pad) 8px}
+.xb{max-width:78ch;margin:0 0 22px}.xb h3{font:600 clamp(22px,2.4vw,30px) var(--display);letter-spacing:.02em;margin:6px 0 10px}
+.xb p{color:var(--muted);line-height:1.65}.m3d .xb:last-of-type{margin-bottom:26px}
+.m3d .shead,.xs .shead{padding-left:0;padding-right:0}
+
+/* video project */
+.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:2px;padding:0 var(--pad) clamp(40px,7vw,96px)}
+.vw{margin:0;background:var(--card);display:flex;flex-direction:column}
+.vw video{display:block;width:100%;aspect-ratio:16/9;background:#000;object-fit:contain}
+.vw figcaption{padding:12px 16px 14px;font:600 19px/1.15 var(--display)}
+.vw figcaption small{display:block;color:var(--red);font:500 14px var(--display);letter-spacing:.08em}
+.vw figcaption span{display:block;margin-top:4px;color:var(--muted);font:400 15px/1.4 var(--body)}
