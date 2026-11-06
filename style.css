@@ -296,7 +296,7 @@ body.indetail .logo{opacity:1;pointer-events:auto}
 
 /* ===== Bukti satu ukuran + kotak multi-gambar, sertifikat 2 gambar ===== */
 .evw.fit .ev img{object-fit:contain}
-.ev[data-n].ok::after{content:attr(data-n) " gambar";position:absolute;right:10px;top:10px;background:#0c0a09cc;color:#fff;padding:4px 10px;font:600 14px var(--display);letter-spacing:.06em}
+.ev[data-n].ok::after{content:attr(data-n) " images";position:absolute;right:10px;top:10px;background:#0c0a09cc;color:#fff;padding:4px 10px;font:600 14px var(--display);letter-spacing:.06em}
 .cimgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
 .cf{margin:0}.cf figcaption{padding:10px 0 0;font:600 17px var(--display);color:var(--muted);letter-spacing:.02em}
 button.cimg{all:unset;box-sizing:border-box;position:relative;width:100%;min-height:200px;background:var(--card);display:grid;place-items:center;cursor:default}
