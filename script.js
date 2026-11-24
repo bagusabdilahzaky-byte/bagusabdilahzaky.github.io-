@@ -164,6 +164,7 @@ function load3D(btn){var box=btn.closest('.m3d'),c=P[box.dataset.id].m3d,stage=b
 function evT(arr,k,fit){return arr.map(function(x,i){return '<figure class="evw'+(fit?' fit':'')+'"><button class="ev" disabled data-src="'+x.src+'" data-cap="'+x.t+'" aria-label="View '+x.t+'"><img src="'+x.src+'" alt="'+x.t+'" onload="var b=this.parentNode;b.classList.add(\'ok\');b.disabled=false" onerror="this.remove()"><em>Photo coming soon</em></button><figcaption><small>'+k+' '+(i+1)+'</small>'+x.t+'</figcaption></figure>'}).join('')}
 function appTab(b){var k=b.dataset.app;$$('[data-app]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});$$('.apnl').forEach(function(x){x.hidden=x.dataset.pnl!==k})}
 function vidsHTML(v){return '<section class="vids" aria-label="Video"><div class="shead"><h2>Video</h2></div><div class="vg">'+v.map(function(x,i){return '<figure class="vw"><video controls playsinline preload="metadata" poster="'+x.poster+'" aria-label="'+x.t+'"><source src="'+x.src+'" type="video/mp4"></video><figcaption><small>Video '+(i+1)+'</small>'+x.t+(x.d?'<span>'+x.d+'</span>':'')+'</figcaption></figure>'}).join('')+'</div></section>'}
+function cover(id){return document.getElementById('ic-'+id)?'<div class="cvr" aria-hidden="true"><svg class="ic" viewBox="0 0 120 120"><use href="#ic-'+id+'"/></svg></div>':''}
 function renderCalc(id){var p=P[id],n=order[(order.indexOf(id)+1)%order.length],q=P[n];det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
   var tabs=p.apps.length>1?'<section aria-label="Select an application"><div class="shead"><h2>'+(p.tl||'Select an application')+'</h2><div class="tabs" role="group">'+p.apps.map(function(a,i){return '<button data-app="'+a.k+'" aria-pressed="'+(i===0)+'">'+a.n+'</button>'}).join('')+'</div></div></section>':'';
   var panels=p.apps.map(function(a,i){return '<div class="apnl" data-pnl="'+a.k+'"'+(i?' hidden':'')+'>'+
@@ -171,14 +172,14 @@ function renderCalc(id){var p=P[id],n=order[(order.indexOf(id)+1)%order.length],
     '<section class="exps">'+a.s.map(function(s,j){return '<div><small>0'+(j+1)+'</small><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('')+'</section>'+
     (a.g?a.g.map(function(g){return '<section aria-label="'+g.h+'"><div class="shead"><h2>'+g.h+'</h2></div><div class="evg">'+evT(g.ev,g.k,1)+'</div></section>'}).join(''):'<section aria-label="Results and evidence"><div class="shead"><h2>Results and evidence</h2></div><div class="evg">'+evT(a.ev,a.n)+'</div></section>')+(a.vid?vidsHTML(a.vid):'')+'</div>'}).join('');
   det.innerHTML='<button class="back" data-back>‹ All projects</button>'+
-  '<header class="dh dhs"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>'+p.pre+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
+  '<header class="dh dhs"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div>'+cover(id)+'<div class="copy"><div class="pre"><span>'+p.pre+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
   tabs+panels+
   '<a class="next" href="#'+n+'" data-p="'+n+'" style="--a:'+q.a+';--b:'+q.b+'"><small>Next project</small><b>'+q.t+'</b></a>';
   var h=$('.dh',det);requestAnimationFrame(function(){requestAnimationFrame(function(){h.classList.add('on')})})}
 function render(id){var p=P[id];if(p.cert){renderCert(id);return}if(p.exp){renderExp(id);return}if(p.calc){renderCalc(id);return}var n=order[(order.indexOf(id)+1)%order.length],q=P[n];
   det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
   det.innerHTML='<button class="back" data-back>‹ All projects</button>'+
-  '<header class="dh"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>'+p.pre+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
+  '<header class="dh"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div>'+cover(id)+'<div class="copy"><div class="pre"><span>'+p.pre+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
   '<section class="info"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><div class="dd"><p>'+p.d.split('\n').join('</p><p>')+'</p>'+(p.from?'<a class="from" href="#'+p.from.id+'" data-p="'+p.from.id+'">Part of '+p.from.t+' →</a>':'')+'</div></section>'+
   (p.f?factsHTML(p.f):'')+(p.m3d?'<section class="m3d" data-id="'+id+'" aria-label="3D Model"><div class="shead"><h2>3D Model</h2></div><div class="m3dbox"><img class="m3dposter" src="'+p.m3d.poster+'" alt="'+p.m3d.alt+'"><button class="m3dgo" data-m3d><b>View interactive 3D model</b><small>'+p.m3d.size+'</small></button><div class="m3dbar" hidden><i></i></div></div><p class="m3dnote">'+p.m3d.note+'</p></section>':'')+(p.sh?sheetsHTML(p.sh):!p.g.length?'':'<section class="gal" aria-label="Gallery '+p.t+'">'+p.g.map(function(g,i){return g===null?'':'<figure class="tile" data-cur="Photo"><img src="assets/img/'+id+'/'+(i+1)+'.jpg" alt="'+g+'" onerror="this.remove()"><i></i><span><small>Replace with photo '+(i+1)+'</small>'+g+'</span></figure>'}).join('')+'</section>')+(p.vid?vidsHTML(p.vid):'')+
   '<a class="next" href="#'+n+'" data-p="'+n+'" style="--a:'+q.a+';--b:'+q.b+'"><small>Next project</small><b>'+q.t+'</b></a>';
@@ -219,10 +220,10 @@ function sl(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.
   dots.forEach(function(d,k){d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}});clearTimeout(t);t=setTimeout(function(){sl(i+1)},DUR)}
 dots.forEach(function(d,k){d.addEventListener('click',function(){sl(k)})});
 var deep=P[location.hash.slice(1)]||ALIAS[location.hash.slice(1)];
-setTimeout(function(){document.body.classList.add('ready');if(!RM)sl(0)},RM?0:deep?450:1750);
+var SP=deep?450:1850,el=performance.now()-(window.__t0||0);
+setTimeout(function(){document.body.classList.add('ready');if(!RM)sl(0)},RM?0:Math.max(0,SP-el));
 var tr=$('#track');function step(d){tr.scrollBy({left:d*(tr.firstElementChild.offsetWidth+2),behavior:'smooth'})}
 $('#next').onclick=function(){step(1)};$('#prev').onclick=function(){step(-1)};
-var bp=$('#bimpic');if(bp&&window.IMGS&&IMGS['ARS-034'])bp.style.backgroundImage='url('+IMGS['ARS-034'][0]+'),linear-gradient(135deg,#2f6fd6,#0d1b3a)';
 route();
 })();
 
@@ -232,7 +233,7 @@ var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){retur
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
 var det=$('#detail'),hd=$('#hd'),menu=$('#menu'),mbtn=$('#mbtn');
 /* 1. penghitung preloader */
-var pct=$('#pct'),t0=performance.now(),D=location.hash.length>1?450:1700;
+var pct=$('#pct'),t0=window.__t0||performance.now(),D=location.hash.length>1?450:1850;
 (function tick(t){var k=Math.min(1,(t-t0)/D);pct.textContent=Math.round(k*100);if(k<1)requestAnimationFrame(tick)})(t0);
 /* 2. reveal saat scroll + hitung naik */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var t=e.target;t.classList.add('in');io.unobserve(t);var b=$('b',t);if(b&&/^\d+$/.test(b.textContent)&&!RM)count(b)})},{threshold:.15,rootMargin:'0px 0px -5% 0px'});
@@ -270,8 +271,7 @@ onScroll();
 /* project categories, card labels, automatic card photos */
 (function(){var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
 var L={jembatan:'Bridge',jalan:'Road',gedung:'Building',rumah:'House',struktur:'Structure',rab:'Cost Estimate'};
-$$('.item').forEach(function(it){var s=document.createElement('small');s.className='cat';s.textContent=L[it.dataset.cat];$('.t',it).insertBefore(s,$('.t',it).firstChild);
-  var id=it.dataset.p,pic=$('.pic',it);if(id==='bim')return;var im=new Image();im.onload=function(){pic.style.backgroundImage='url('+im.src+'),linear-gradient(135deg,var(--a),var(--b))';pic.classList.add('img')};im.src='assets/img/'+id+({rumah2:'/thumb/R36-01.webp',polres:'/thumb/POL-02.webp',jembatan:'/thumb/JBT-04.webp'}[id]||'/1.jpg')});
+$$('.item').forEach(function(it){var s=document.createElement('small');s.className='cat';s.textContent=L[it.dataset.cat];$('.t',it).insertBefore(s,$('.t',it).firstChild);});
 document.addEventListener('click',function(e){var b=e.target.closest('.cats [data-cat]');if(!b)return;var f=b.dataset.cat;
   $$('.cats [data-cat]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
   $$('.item').forEach(function(it){it.hidden=!(f==='all'||it.dataset.cat===f)});var t=$('#track');t.scrollLeft=0;t.dispatchEvent(new Event('scroll'))});
