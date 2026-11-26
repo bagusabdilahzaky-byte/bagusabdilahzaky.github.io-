@@ -12,7 +12,7 @@ var IMGS={};SH.forEach(function(s){IMGS[s.c]=['assets/img/thumb/'+s.c+'.webp','a
 (function(){
 var $=function(s){return document.querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var order=['polres','bim','jembatan','jalan','gedung','rumah2','struktur','rab'];
+var order=['polres','bim','jembatan','jalan','gedung','model3d','rumah2','struktur','rab'];
 var P={
  bim:{sh:'bim',t:'Five-Story Office Building in a BIM Model',pre:'D3 Civil Engineering final project, 2026',a:'#2f6fd6',b:'#0d1b3a',
   m:[['Project','Office Building, 5 floors + rooftop'],['Campus','Politeknik Raflesia Rejang Lebong'],['Modeled in','Revit (Building Information Modeling)'],['Structural analysis','Robot Structural Analysis'],['Disciplines','Architecture, Structure, MEP']],
@@ -33,6 +33,12 @@ var P={
   from:{id:'bim',t:'Five-Story Office Building in a BIM Model'},
   g:[],
   vid:[{t:'Architectural model: facade and window openings',d:'3D view rotating around the building.',src:'assets/video/gedung-revit-arsitektur.mp4',poster:'assets/video/gedung-revit-arsitektur.jpg'},{t:'Structural model: columns, beams, and foundations',d:'3D view of the structural frame from base to roof.',src:'assets/video/gedung-revit-struktur.mp4',poster:'assets/video/gedung-revit-struktur.jpg'}]},
+ model3d:{t:'3D Models in AutoCAD',pre:'AutoCAD 2D + 3D training project',a:'#e4572e',b:'#3a1208',
+  m:[['Category','3D Model'],['Context','AutoCAD 2D + 3D training'],['Work','3D modeling of two houses and a monument'],['Software','Autodesk AutoCAD'],['Format','Walkthrough videos of the 3D view']],
+  d:'Results of an AutoCAD 2D + 3D training: three 3D models built in Autodesk AutoCAD, recorded as walkthroughs of the 3D view inside the AutoCAD window.\nThe first video shows a house with a garden, a boundary wall, and an access road, orbited from several angles. The second shows a multi-level house with facade cladding, balconies, and an exterior staircase with railings. The third shows a domed monument with four minarets on a raised platform, seen from the side and from above.',
+  f:[['3','3D models'],['AutoCAD','Software']],
+  g:[],
+  from:{id:'tr-autocad',t:'the AutoCAD 2D + 3D training'},vid:[{t:'House with a garden and access road',d:'3D view orbiting the house, boundary wall, and road.',src:'assets/video/model3d-rumah-taman.mp4',poster:'assets/video/model3d-rumah-taman.jpg'},{t:'Multi-level house with an exterior staircase',d:'3D view of the facade, balconies, and stairs.',src:'assets/video/model3d-rumah-bertingkat.mp4',poster:'assets/video/model3d-rumah-bertingkat.jpg'},{t:'Domed monument with four minarets',d:'3D view from the side and from above.',src:'assets/video/model3d-monumen.mp4',poster:'assets/video/model3d-monumen.jpg'}]},
  rumah2:{sh:'r36',t:'Working Drawing Design for a Type 36 Residential House',pre:'Type 36 residential house',a:'#27ae60',b:'#0b2616',
   m:[['Project','Type 36 residential house'],['Rooms','2 bedrooms, family room, dining room, bathroom/WC, terrace, carport, garden'],['Drawing scope','Architecture, structure, and installations'],['Software','AutoCAD']],
   d:'The Type 36 residential house design is the design of a simple dwelling, including the preparation of architectural working drawings as a guide for construction. The building layout consists of two bedrooms, a family room, a dining room, a bathroom/WC, a terrace, a carport, and a garden area.\nThe working drawings include the floor plan, front and rear elevations, and architectural details describing dimensions, room layout, facade form, and building elements. The design also considers circulation between rooms, lighting, ventilation, and land use to create a functional and comfortable home.\nThe working drawing documents are presented at technical scales and sizes as a reference for construction and for coordinating work in the field.',
@@ -80,6 +86,19 @@ var P={
     s:[['Work volumes','Volume recap per work item, from preparation to miscellaneous work.'],['Prices and weights','Unit prices use AHSP with material and labor lists; each work item is weighted against the total cost.'],['Schedule and recapitulation','There are 12 work groups, with a time schedule and S-curve. Masonry and plastering is the largest, followed by roof and ceiling.']],
     g:[{h:'Recapitulation and cost share',k:'RAB',ev:[{t:'Internship project RAB recapitulation',src:'assets/img/rab/magang-rekap.webp'},{t:'Cost share per work group',src:'assets/img/rab/magang-porsi.webp'}]},{h:'Excel sheet photos',k:'Sheet',ev:[{t:'RAB recapitulation sheet',src:'assets/img/rab/sheet/magang-s-rekap.webp'},{t:'RAB sheet: volume, unit price, and total',src:'assets/img/rab/sheet/magang-s-rab.webp'},{t:'Volume recap sheet',src:'assets/img/rab/sheet/magang-s-volume.webp'},{t:'AHSP sheet: unit price analysis',src:'assets/img/rab/sheet/magang-s-ahsp.webp'},{t:'Work weight sheet',src:'assets/img/rab/sheet/magang-s-bobot.webp'},{t:'Time schedule and S-curve sheet',src:'assets/img/rab/sheet/magang-s-kurva.webp'}]}]}
   ]},
+ 'tr-autocad':{cert:1,t:'Complete AutoCAD 2D + 3D Course',pre:'Training · Online course',a:'#e4572e',b:'#3a1208',
+  m:[['Platform','Udemy'],['Instructors','Er Muktar Ansari, MicroCADD India'],['Length','57.5 total hours'],['Completed','26 November 2026'],['Certificate no.','UC-8af8d330-bcb4-4c8f-85d4-0e45e393040a']],
+  url:'https://ude.my/UC-8af8d330-bcb4-4c8f-85d4-0e45e393040a',rel:{id:'model3d',t:'3D Models in AutoCAD'},
+  imgs:[{src:'assets/img/pelatihan/tr-autocad-1.jpg',t:'Certificate of completion, Complete AutoCAD 2D + 3D Course',c:'Certificate of completion'}]},
+ 'tr-bim':{cert:1,t:'Building Information Modelling (BIM) Training',pre:'Training · Civil Brings Revolution 11th',a:'#2f6fd6',b:'#0d1b3a',
+  m:[['Organizer','Civil Engineering Student Association (HIMATEKS), Universitas Lampung'],['Event','The 11th Civil Brings Revolution'],['Date','14 and 15 October 2026'],['Venue','Building A, Faculty of Engineering, Universitas Lampung'],['Speakers','PT Nindya Karya'],['Role','Participant'],['Certificate no.','555/D/PAN-CBR/HIMATEKS/FT/UL/X/2026']],
+  imgs:[{src:'assets/img/pelatihan/tr-bim-1.jpg',t:'Certificate of participation, BIM training, Universitas Lampung',c:'Certificate of participation'}]},
+ 'tr-k3':{cert:1,t:'Basic Education for General OHS (K3) Expert, Beginner Level',pre:'Training · Online',a:'#17a2b8',b:'#082b33',
+  m:[['Organizer','MITA Training (PT Mita Indonesia Berdaya)'],['Date','26 April 2026'],['Format','Online'],['Training load','4 instructional hours'],['Basis','SKKNI, Minister of Manpower Decree No. 38 of 2019'],['Role','Participant'],['Certificate no.','75/MIB/IV/2026/212']],
+  imgs:[{src:'assets/img/pelatihan/tr-k3-1.jpg',t:'Certificate, Basic Education for General OHS Expert',c:'Certificate'},{src:'assets/img/pelatihan/tr-k3-2.jpg',t:'List of materials, Basic Education for General OHS Expert',c:'List of materials'}]},
+ 'tr-karakter':{cert:1,t:'Basic Character Strengthening Training for Vocational Students',pre:'Training · SMK Negeri 1 Rejang Lebong',a:'#6b7a3a',b:'#1d2410',
+  m:[['Organizer','Infantry Battalion 144/Jaya Yudha'],['Participant of','SMK Negeri 1 Rejang Lebong'],['Major','Building Design Modeling and Information'],['Dates','24 to 29 October 2022'],['Issued in','Curup, 29 October 2022']],
+  imgs:[{src:'assets/img/pelatihan/tr-karakter-1.jpg',t:'Certificate, Basic Character Strengthening Training (student ID number covered)',c:'Certificate'}]},
  draftsman:{cert:1,t:'Road and Bridge Works Draftsman (Level 2)',a:'#e8a317',b:'#3b1d0a',m:[['Issuer','National Professional Certification Agency (BNSP)'],['Level','2'],['Valid','13 November 2023 – 13 November 2028']],url:'https://sis.lspataki.com/sertifikat/validasi_signature/SS0yMDIzMTAyNzEzMzQ1Nzg0ODg5'},
  implementer:{cert:1,t:'Building Work Field Implementer (Level 5)',a:'#2f6fd6',b:'#0d1b3a',m:[['Issuer','National Professional Certification Agency (BNSP)'],['Level','5'],['Valid','Sep 2026 – Sep 2031']],url:'https://sipp.p3sm.or.id/digital-signature/lsp/ketua/sertifikat/1wNN5t6A'},
  angkasapura:{exp:1,nx:'citrautama',bg:'assets/img/magang/angkasapura/cover.jpg',t:'Internship at PT Angkasa Pura Indonesia',role:'Airport Airside &amp; Landside Facilities',per:'Aug–Sep 2025',a:'#d40511',b:'#2a0b0b',
@@ -141,11 +160,11 @@ function renderExp(id){var p=P[id],q=P[p.nx];det.style.setProperty('--a',p.a);de
   io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay=(e.target.dataset.d||0)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
   $$('.tile,.rv',det).forEach(function(t,i){t.dataset.d=(i%3)*90;io.observe(t)});
   var h=$('.dh',det);requestAnimationFrame(function(){requestAnimationFrame(function(){h.classList.add('on')})})}
-function renderCert(id){var p=P[id];GRP[id]=[{src:'assets/img/sertifikat/'+id+'-1.jpg',t:'Certificate of competence, '+p.t,c:'Certificate of competence'},{src:'assets/img/sertifikat/'+id+'-2.jpg',t:'List of competency units, '+p.t,c:'List of competency units'}];det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
+function renderCert(id){var p=P[id];GRP[id]=p.imgs||[{src:'assets/img/sertifikat/'+id+'-1.jpg',t:'Certificate of competence, '+p.t,c:'Certificate of competence'},{src:'assets/img/sertifikat/'+id+'-2.jpg',t:'List of competency units, '+p.t,c:'List of competency units'}];det.style.setProperty('--a',p.a);det.style.setProperty('--b',p.b);
   det.innerHTML='<button class="back" data-back>‹ Back</button>'+
-  '<header class="dh dhs"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>Certification</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
-    '<section class="cert"><div class="cimgs">'+[0,1].map(function(i){var g=GRP[id][i];return '<figure class="cf"><button class="cimg cz" data-g="'+id+'" data-i="'+i+'" aria-label="Enlarge '+g.t+'"><img src="'+g.src+'" alt="'+g.t+'" onload="this.parentNode.classList.add(\'ok\')" onerror="this.parentNode.classList.add(\'empty\');this.remove()"><span>Photo coming soon</span></button><figcaption>'+g.c+'</figcaption></figure>'}).join('')+'</div>'+
-  '<div class="cinfo"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl><a class="cbtn" href="'+p.url+'" target="_blank" rel="noopener noreferrer">Open credential ↗</a><p class="curl">'+p.url+'</p></div></section>';
+  '<header class="dh dhs"><div class="bg"></div><div class="streak"></div><div class="streak"></div><div class="streak"></div><div class="copy"><div class="pre"><span>'+(p.pre||'Certification')+'</span></div><h1 class="title"><span>'+p.t+'</span></h1></div></header>'+
+    '<section class="cert"><div class="cimgs'+(GRP[id].length<2?' one':'')+'">'+GRP[id].map(function(g,i){return '<figure class="cf"><button class="cimg cz" data-g="'+id+'" data-i="'+i+'" aria-label="Enlarge '+g.t+'"><img src="'+g.src+'" alt="'+g.t+'" onload="this.parentNode.classList.add(\'ok\')" onerror="this.parentNode.classList.add(\'empty\');this.remove()"><span>Photo coming soon</span></button><figcaption>'+g.c+'</figcaption></figure>'}).join('')+'</div>'+
+  '<div class="cinfo"><dl>'+p.m.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join('')+'</dl>'+(p.url?'<a class="cbtn" href="'+p.url+'" target="_blank" rel="noopener noreferrer">Open credential ↗</a><p class="curl">'+p.url+'</p>':'')+(p.rel?'<a class="from" href="#'+p.rel.id+'" data-p="'+p.rel.id+'">See the resulting project: '+p.rel.t+' →</a>':'')+'</div></section>';
   var h=$('.dh',det);requestAnimationFrame(function(){requestAnimationFrame(function(){h.classList.add('on')})})}
 function mvLoad(){return new Promise(function(res,rej){
   if(window.customElements&&customElements.get('model-viewer')){res();return}
@@ -214,7 +233,7 @@ document.addEventListener('click',function(e){
   if(e.target.closest('[data-back]')){e.preventDefault();back();return}
   var c=e.target.closest('[data-p]');if(c){e.preventDefault();go(c.dataset.p,c)}});
 /* cover + carousel */
-var DUR=6000,slides=$$('.slide'),dots=$$('.dots button'),i=0,t;
+var DUR=2000,slides=$$('.slide'),dots=$$('.dots button'),i=0,t;
 $('.dots').style.setProperty('--dur',DUR+'ms');
 function sl(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
   dots.forEach(function(d,k){d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}});clearTimeout(t);t=setTimeout(function(){sl(i+1)},DUR)}
@@ -270,7 +289,7 @@ onScroll();
 
 /* project categories, card labels, automatic card photos */
 (function(){var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
-var L={jembatan:'Bridge',jalan:'Road',gedung:'Building',rumah:'House',struktur:'Structure',rab:'Cost Estimate'};
+var L={jembatan:'Bridge',jalan:'Road',gedung:'Building',rumah:'House',model3d:'3D Model',struktur:'Structure',rab:'Cost Estimate'};
 $$('.item').forEach(function(it){var s=document.createElement('small');s.className='cat';s.textContent=L[it.dataset.cat];$('.t',it).insertBefore(s,$('.t',it).firstChild);});
 document.addEventListener('click',function(e){var b=e.target.closest('.cats [data-cat]');if(!b)return;var f=b.dataset.cat;
   $$('.cats [data-cat]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});

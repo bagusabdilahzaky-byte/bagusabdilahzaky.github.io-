@@ -399,3 +399,17 @@ a.from{display:inline-block;margin-top:18px;color:var(--red);text-decoration:non
 .skills>div.in .mt::after,.skills>div:not([data-r]) .mt::after{clip-path:inset(0)}
 @media (max-width:1000px){.skills{grid-template-columns:1fr}}
 @media (max-width:560px){.meters{grid-template-columns:1fr}}
+
+/* ===== Training ===== */
+.skills .certs{padding:0}
+.skills>.trn{grid-column:1/-1}
+.trn .certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:0 clamp(32px,5vw,72px)}
+.cimgs.one{grid-template-columns:1fr}
+
+/* ===== Kilasan cover (Profile, Skills, Education): 2 detik per slide ===== */
+.slide{transition:opacity .6s,visibility 0s .6s}
+.slide.on{transition:opacity .6s}
+.slide .pre span,.slide .title span{transition-duration:.7s}
+.slide.on .pre span{transition-delay:.1s}
+.slide.on .title span{transition-delay:.2s}
+.slide.on .cta{transition-delay:.45s}
